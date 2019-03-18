@@ -1,17 +1,20 @@
 ﻿using Entidades;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class RepositorioDeportista
+    public class RepositorioMaestro : IRepositorioMaestro
     {
-        public int IngresarDeportista(Deportista deportista)
+        public List<TipoDocumento> ObtenerTiposDocumento()
         {
-            return default(int);
+            List<TipoDocumento> tiposDocumento = new List<TipoDocumento>
+            {
+                new TipoDocumento() { Id = 1, Nombre = "Cédula de Ciudadanía" },
+                new TipoDocumento() { Id = 2, Nombre = "Tarjeta de Identidad" },
+                new TipoDocumento() { Id = 3, Nombre = "Cédula de Extranjería" }
+            };
+
+            return tiposDocumento;
         }
     }
 }

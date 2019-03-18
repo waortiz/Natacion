@@ -1,20 +1,20 @@
 ﻿using Datos;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class ControlDeportista
+    public class ControlDeportista : IControlDeportista
     {
-        private RepositorioDeportista repositorio;
+        private IRepositorioDeportista repositorio;
 
         public ControlDeportista()
         {
             repositorio = new RepositorioDeportista();
+        }
+
+        public ControlDeportista(IRepositorioDeportista repositorio)
+        {
+            this.repositorio = repositorio;
         }
 
         public int IngresarDeportista(Deportista deportista)

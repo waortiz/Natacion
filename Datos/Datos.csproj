@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositorioMaestro.cs" />
+    <Compile Include="IRepositorioDeportista.cs" />
+    <Compile Include="RepositorioMaestro.cs" />
     <Compile Include="RepositorioDeportista.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
