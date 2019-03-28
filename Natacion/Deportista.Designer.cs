@@ -59,9 +59,7 @@
             this.lblNumeroDocumento = new System.Windows.Forms.Label();
             this.lblPrimerNonbre = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnMostrarSalario = new System.Windows.Forms.Button();
-            this.btnMostrarFechaNaicmiento = new System.Windows.Forms.Button();
+            this.btnVerListado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.erpMensaje)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -373,44 +371,22 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnSalir
+            // btnVerListado
             // 
-            this.btnSalir.Location = new System.Drawing.Point(634, 449);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(125, 29);
-            this.btnSalir.TabIndex = 14;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnMostrarSalario
-            // 
-            this.btnMostrarSalario.Location = new System.Drawing.Point(482, 449);
-            this.btnMostrarSalario.Name = "btnMostrarSalario";
-            this.btnMostrarSalario.Size = new System.Drawing.Size(125, 29);
-            this.btnMostrarSalario.TabIndex = 15;
-            this.btnMostrarSalario.Text = "Mostrar Salario";
-            this.btnMostrarSalario.UseVisualStyleBackColor = true;
-            this.btnMostrarSalario.Click += new System.EventHandler(this.btnMostrarSalario_Click);
-            // 
-            // btnMostrarFechaNaicmiento
-            // 
-            this.btnMostrarFechaNaicmiento.Location = new System.Drawing.Point(276, 449);
-            this.btnMostrarFechaNaicmiento.Name = "btnMostrarFechaNaicmiento";
-            this.btnMostrarFechaNaicmiento.Size = new System.Drawing.Size(192, 29);
-            this.btnMostrarFechaNaicmiento.TabIndex = 16;
-            this.btnMostrarFechaNaicmiento.Text = "Mostrar Fecha Nacimiento";
-            this.btnMostrarFechaNaicmiento.UseVisualStyleBackColor = true;
-            this.btnMostrarFechaNaicmiento.Click += new System.EventHandler(this.btnMostrarFechaNaicmiento_Click);
+            this.btnVerListado.Location = new System.Drawing.Point(632, 449);
+            this.btnVerListado.Name = "btnVerListado";
+            this.btnVerListado.Size = new System.Drawing.Size(125, 29);
+            this.btnVerListado.TabIndex = 14;
+            this.btnVerListado.Text = "Ver listado";
+            this.btnVerListado.UseVisualStyleBackColor = true;
+            this.btnVerListado.Click += new System.EventHandler(this.btnVerListado_Click);
             // 
             // Deportista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 508);
-            this.Controls.Add(this.btnMostrarFechaNaicmiento);
-            this.Controls.Add(this.btnMostrarSalario);
-            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnVerListado);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGuardar);
             this.Name = "Deportista";
@@ -453,11 +429,9 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboEPS;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblIngresos;
         private System.Windows.Forms.TextBox txtIngresosMensuales;
-        private System.Windows.Forms.Button btnMostrarSalario;
-        private System.Windows.Forms.Button btnMostrarFechaNaicmiento;
+        private System.Windows.Forms.Button btnVerListado;
     }
 }
 

@@ -156,17 +156,6 @@ namespace Natacion
                 erpMensaje.SetError(cboEPS, null);
             }
 
-            if(((TipoDocumento)cboTipoDocumento.SelectedItem).Id != (int)TipoDocumentoEnum.Cedula)
-            {
-                erpMensaje.SetError(cboTipoDocumento, 
-                    "Solo se admiten mayores de edad nacionales");
-                return false;
-            }
-            else
-            {
-                erpMensaje.SetError(cboTipoDocumento, null);
-            }
-
             return true;
         }
 
@@ -177,29 +166,12 @@ namespace Natacion
             cboTipoDocumento.DataSource = tiposDocumento;
             cboTipoDocumento.DisplayMember = "Nombre";
             cboTipoDocumento.SelectedItem = null;
-            dtpFechaNacimiento.ResetText();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnVerListado_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void btnMostrarSalario_Click(object sender, EventArgs e)
-        {
-            double salario = 0;
-            double.TryParse(txtIngresosMensuales.Text, out salario);
-            MessageBox.Show(string.Format(
-                "Los ingresos mensuales son {0}",
-                salario.ToString("€ ###,###")));
-        }
-
-        private void btnMostrarFechaNaicmiento_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(string.Format(
-                           "La fecha de nacimiento es {0}",
-                           dtpFechaNacimiento.Value.
-                           ToString("dd/MM/yyyy")));
+            ListadoDeportistas listado = new ListadoDeportistas();
+            listado.ShowDialog();
         }
     }
 }

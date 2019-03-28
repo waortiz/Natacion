@@ -17,5 +17,17 @@ namespace Entidades
         public Disciplina Disciplina { get; set; }
         public EPS EPS { get; set; }
         public TipoDocumento TipoDocumento { get; set; }
+        public string NombreTipoDocumento
+        {
+            get
+            {
+                if (TipoDocumento != null)
+                {
+                    return TipoDocumento.Nombre;
+                }
+
+                return string.Empty;
+            }
+        }
     }
 }

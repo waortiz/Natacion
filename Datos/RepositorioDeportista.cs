@@ -1,20 +1,39 @@
 ﻿using Entidades;
+using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace Datos
 {
-    public class RepositorioMaestro : IRepositorioMaestro
+    public class RepositorioDeportista : IRepositorioDeportista
     {
-        public List<TipoDocumento> ObtenerTiposDocumento()
-        {
-            List<TipoDocumento> tiposDocumento = new List<TipoDocumento>
-            {
-                new TipoDocumento() { Id = 1, Nombre = "Cédula de Ciudadanía" },
-                new TipoDocumento() { Id = 2, Nombre = "Tarjeta de Identidad" },
-                new TipoDocumento() { Id = 3, Nombre = "Cédula de Extranjería" }
-            };
+        public static List<Deportista> deportistas = new List<Deportista>();
 
-            return tiposDocumento;
+        public void EliminarDeportista(long idDeportista)
+        {
+            var deportista = deportistas.FirstOrDefault(d=>d.Id == idDeportista);
+            if(deportista != null)
+            {
+                deportistas.Remove(deportista);
+            }
+        }
+
+        public int IngresarDeportista(Deportista deportista)
+        {
+            deportista.Id = new Random().Next(1, 1000000000);
+            deportistas.Add(deportista);
+
+            return deportista.Id;
+        }
+
+        public List<Deportista> ObtenerDeportistas(string numeroDocumento, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido)
+        {
+            return deportistas.Where(p => (numeroDocumento == "" || p.NumeroDocumento == numeroDocumento) &&
+            (primerNombre == "" || p.PrimerNombre.Contains(primerNombre)) &&
+            (segundoNombre == "" || p.SegundoNombre.Contains(segundoNombre)) &&
+            (primerApellido == "" || p.PrimerApellido.Contains(primerApellido)) &&
+            (segundoApellido == "" || p.SegundoApellido.Contains(segundoApellido))
+            ).ToList();
         }
     }
 }
