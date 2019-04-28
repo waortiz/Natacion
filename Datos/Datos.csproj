@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositorioUsuario.cs" />
+    <Compile Include="RepositorioDeportista.cs" />
+    <Compile Include="RepositorioUsuarioMock.cs" />
+    <Compile Include="RepositorioUsuario.cs" />
     <Compile Include="IRepositorioMaestro.cs" />
     <Compile Include="IRepositorioDeportista.cs" />
-    <Compile Include="RepositorioDeportista.cs" />
+    <Compile Include="RepositorioDeportistaMock.cs" />
     <Compile Include="RepositorioMaestro.cs" />
+    <Compile Include="RepositorioMaestroMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

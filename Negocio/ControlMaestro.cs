@@ -10,12 +10,27 @@ namespace Negocio
 
         public ControlMaestro()
         {
-            repositorio = new RepositorioMaestro();
+            repositorio = new RepositorioMaestroMock();
         }
 
         public ControlMaestro(IRepositorioMaestro repositorio)
         {
             this.repositorio = repositorio;
+        }
+
+        public List<Disciplina> ObtenerDisciplinas()
+        {
+            return repositorio.ObtenerDisciplinas();
+        }
+
+        public List<EPS> ObtenerEPS()
+        {
+            return repositorio.ObtenerEPS();
+        }
+
+        public List<Sexo> ObtenerSexo()
+        {
+            return repositorio.ObtenerSexo();
         }
 
         public List<TipoDocumento> ObtenerTiposDocumento()

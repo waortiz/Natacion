@@ -16,7 +16,7 @@ namespace Natacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Deportista());
+            Application.Run(new Ingreso());
         }
     }
 }

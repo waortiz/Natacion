@@ -4,7 +4,7 @@ namespace Entidades
 {
     public class Deportista
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string PrimerNombre { get; set; }
         public string SegundoNombre { get; set; }
         public string PrimerApellido { get; set; }
@@ -13,7 +13,11 @@ namespace Entidades
         public string CorreoElectronico { get; set; }
         public string Direccion { get; set; }
         public string NumeroDocumento { get; set; }
+
+        public double IngresosMensuales { get; set; }
         public DateTime FechaNacimiento { get; set; }
+
+        public Sexo Sexo { get; set; }
         public Disciplina Disciplina { get; set; }
         public EPS EPS { get; set; }
         public TipoDocumento TipoDocumento { get; set; }

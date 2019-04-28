@@ -29,20 +29,15 @@ namespace Natacion
             {
                 CorreoElectronico = txtCorreoElectronico.Text,
                 Direccion = txtDireccion.Text,
-                Disciplina = new Disciplina()
-                {
-                    Nombre = cboDisciplina.SelectedItem as string
-                },
-                EPS = new EPS()
-                {
-                    Nombre = cboEPS.SelectedItem as string
-                },
+                Disciplina = cboDisciplina.SelectedItem as Disciplina,
+                EPS = cboEPS.SelectedItem as EPS,
                 FechaNacimiento = dtpFechaNacimiento.Value,
                 NumeroDocumento = txtNumeroDocumento.Text,
                 PrimerApellido = txtPrimerApellido.Text,
                 PrimerNombre = txtPrimerNombre.Text,
                 SegundoApellido = txtPrimerApellido.Text,
                 SegundoNombre = txtSegundoNombre.Text,
+                IngresosMensuales = double.Parse(txtIngresosMensuales.Text),
                 Telefono = txtTelefono.Text,
                 TipoDocumento = cboTipoDocumento.SelectedItem as TipoDocumento
             };
@@ -156,22 +151,57 @@ namespace Natacion
                 erpMensaje.SetError(cboEPS, null);
             }
 
+            if (string.IsNullOrEmpty(txtIngresosMensuales.Text.Trim()))
+            {
+                erpMensaje.SetError(txtIngresosMensuales, "Por favor ingrese los ingresos mensuales");
+                return false;
+            }
+            else
+            {
+                erpMensaje.SetError(txtIngresosMensuales, null);
+            }
+
             return true;
         }
 
         private void Deportista_Load(object sender, EventArgs e)
         {
             IControlMaestro control = new ControlMaestro();
-            List<TipoDocumento> tiposDocumento = control.ObtenerTiposDocumento();
+            var tiposDocumento = control.ObtenerTiposDocumento();
             cboTipoDocumento.DataSource = tiposDocumento;
             cboTipoDocumento.DisplayMember = "Nombre";
             cboTipoDocumento.SelectedItem = null;
+
+            var eps = control.ObtenerEPS();
+            cboEPS.DataSource = eps;
+            cboEPS.DisplayMember = "Nombre";
+            cboEPS.SelectedItem = null;
+
+            var disciplinas = control.ObtenerDisciplinas();
+            cboDisciplina.DataSource = disciplinas;
+            cboDisciplina.DisplayMember = "Nombre";
+            cboDisciplina.SelectedItem = null;
+
+            var sexo = control.ObtenerSexo();
+            cboSexo.DataSource = sexo;
+            cboSexo.DisplayMember = "Nombre";
+            cboSexo.SelectedItem = null;
+
         }
 
         private void btnVerListado_Click(object sender, EventArgs e)
         {
             ListadoDeportistas listado = new ListadoDeportistas();
             listado.ShowDialog();
+        }
+
+        private void TxtIngresosMensuales_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((int)e.KeyChar == 8 ||
+    (int)e.KeyChar >= 48 && (int)e.KeyChar <= 59))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

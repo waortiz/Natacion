@@ -1,15 +1,13 @@
-﻿using Datos;
-using Entidades;
-using System;
+﻿using Entidades;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
     public interface IControlMaestro
     {
         List<TipoDocumento> ObtenerTiposDocumento();
+        List<EPS> ObtenerEPS();
+        List<Disciplina> ObtenerDisciplinas();
+        List<Sexo> ObtenerSexo();
     }
 }

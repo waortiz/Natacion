@@ -10,7 +10,7 @@ namespace Negocio
 
         public ControlDeportista()
         {
-            repositorio = new RepositorioDeportista();
+            repositorio = new RepositorioDeportistaMock();
         }
 
         public ControlDeportista(IRepositorioDeportista repositorio)
@@ -18,9 +18,9 @@ namespace Negocio
             this.repositorio = repositorio;
         }
 
-        public int IngresarDeportista(Deportista deportista)
+        public void IngresarDeportista(Deportista deportista)
         {
-            return repositorio.IngresarDeportista(deportista);
+            repositorio.IngresarDeportista(deportista);
         }
 
         public List<Deportista> ConsultarDeportistas(string numeroDocumento, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido)
