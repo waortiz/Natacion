@@ -37,9 +37,12 @@ namespace Datos
                     ConnectionStrings["LigaNatacion"].ConnectionString))
             {
                 conexion.Open();
+                var transaction = conexion.BeginTransaction();
+
                 SqlCommand comando = new SqlCommand();
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Connection = conexion;
+                comando.Transaction = transaction;
 
                 comando.CommandText = "IngresarDeportista";
                 comando.Parameters.Add("@PrimerNombre", SqlDbType.VarChar).Value = deportista.PrimerNombre;
@@ -58,6 +61,8 @@ namespace Datos
                 comando.Parameters.Add("@IngresosMensuales", SqlDbType.SmallInt).Value = deportista.IngresosMensuales;
 
                 comando.ExecuteNonQuery();
+
+                transaction.Commit();
             }
         }
 
@@ -94,6 +99,24 @@ namespace Datos
                     }
                 }
             }
+            return deportistas;
+        }
+
+        public DataTable ObtenerDeportistas()
+        {
+            DataTable deportistas = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["LigaNatacion"].ConnectionString))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Connection = conexion;
+                comando.CommandText = "ConsultarDeportistas";
+
+                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                adaptador.Fill(deportistas);
+            }
+
             return deportistas;
         }
     }

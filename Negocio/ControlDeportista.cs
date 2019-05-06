@@ -1,6 +1,8 @@
 ﻿using Datos;
 using Entidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Negocio
 {
@@ -21,6 +23,11 @@ namespace Negocio
         public void IngresarDeportista(Deportista deportista)
         {
             repositorio.IngresarDeportista(deportista);
+        }
+
+        public DataTable ConsultarDeportistas()
+        {
+            return repositorio.ObtenerDeportistas();
         }
 
         public List<Deportista> ConsultarDeportistas(string numeroDocumento, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido)

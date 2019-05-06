@@ -42,10 +42,18 @@ namespace Natacion
                 TipoDocumento = cboTipoDocumento.SelectedItem as TipoDocumento
             };
 
-            ControlDeportista control = new ControlDeportista();
-            control.IngresarDeportista(deportista);
+            try
+            {
+                ControlDeportista control = new ControlDeportista();
+                control.IngresarDeportista(deportista);
 
-            MessageBox.Show("Los datos se han guardado exitosamente");
+                MessageBox.Show("Los datos se han guardado exitosamente");
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("Ocurrió un error al guardar el deportista");
+                //Log de errores. Log.Error(exc);
+            }
         }
 
         private bool ValidarDatos()

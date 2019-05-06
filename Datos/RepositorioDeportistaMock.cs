@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Data;
 
 namespace Datos
 {
@@ -32,6 +33,13 @@ namespace Datos
             (primerApellido == "" || p.PrimerApellido.Contains(primerApellido)) &&
             (segundoApellido == "" || p.SegundoApellido.Contains(segundoApellido))
             ).ToList();
+        }
+
+        public DataTable ObtenerDeportistas()
+        {
+            DataTable deportistas = new DataTable();
+
+            return deportistas;
         }
     }
 }

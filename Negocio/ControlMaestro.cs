@@ -10,7 +10,7 @@ namespace Negocio
 
         public ControlMaestro()
         {
-            repositorio = new RepositorioMaestroMock();
+            repositorio = new RepositorioMaestro();
         }
 
         public ControlMaestro(IRepositorioMaestro repositorio)
