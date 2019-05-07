@@ -108,8 +108,9 @@
             // deportistasToolStripMenuItem
             // 
             this.deportistasToolStripMenuItem.Name = "deportistasToolStripMenuItem";
-            this.deportistasToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.deportistasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deportistasToolStripMenuItem.Text = "Deportistas";
+            this.deportistasToolStripMenuItem.Click += new System.EventHandler(this.deportistasToolStripMenuItem_Click);
             // 
             // mnuVentanas
             // 

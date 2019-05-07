@@ -102,5 +102,12 @@ namespace Natacion
             form.Show();
         }
         #endregion
+
+        private void deportistasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteDeportistas form = new ReporteDeportistas();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

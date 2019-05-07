@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Microsoft.Reporting.WinForms;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,13 +24,14 @@ namespace Natacion
             ControlDeportista control = new ControlDeportista();
             DataTable dsDeportistas = control.ConsultarDeportistas();
 
-            /*var source = new ReportDataSource("dsDeportistas", dsDeportistas);
+            var source = new ReportDataSource("DSDeportista", dsDeportistas);
             rvReporteDeportistas.LocalReport.DataSources.Clear();
             rvReporteDeportistas.LocalReport.DataSources.Add(source);
             rvReporteDeportistas.LocalReport.Refresh();
 
             rvReporteDeportistas.Visible = true;
-            rvReporteDeportistas.RefreshReport();*/
+            rvReporteDeportistas.RefreshReport();
+            this.rvReporteDeportistas.RefreshReport();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Negocio
 
         public ControlDeportista()
         {
-            repositorio = new RepositorioDeportistaMock();
+            repositorio = new RepositorioDeportista();
         }
 
         public ControlDeportista(IRepositorioDeportista repositorio)
